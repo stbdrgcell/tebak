@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TEBAKTEBAKAN BEN</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+
+
+header {
+  background-color: #2c3e50;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+    .card {
+      max-width: 600px;
+      background: white;
+      margin: 40px auto;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      display: none;
+    }
+
+    .card.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px 10px 0;
+      padding: 10px 20px;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #1a252f;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <h1>John Bennet's Page</h1>
+      </header>
+    
+  <!-- Page 0: Password Page -->
+  <div class="card active" id="page0">
+    <h2>Masukin Password Dulu 😜</h2>
+    <p>clue: SUKA KITA LAKUIN</p>
+    <input type="password" id="passwordInput" placeholder="Password..." style="padding:10px; border-radius:8px; border:1px solid #ccc; width: 80%; margin-bottom: 10px;">
+    <br>
+    <button class="btn" onclick="checkPassword()">Submit</button>
+  </div>
+
+  <!-- Page 1 -->
+  <div class="card" id="page1">
+    <h2>Tawaran Ini Masih Berlaku Gak? 🤭</h2>
+    <img 
+    src="Open TikTok Inbox.jpeg"
+    style="width: 300px; height: auto; border-radius: 12px;"
+    />
+    <button class="btn" onclick="showPage(2)">masih dongg</button>
+    <button class="btn" onclick="noButton()">NO.</button>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="card" id="page2">
+    <h2>YESSSSS, KALO GITUUUU BACA DULU DEH</h2>
+    <img
+    src="Screenshot 2025-04-27 at 23.47.27.png"
+    style="width: 300px; height: auto; border-radius: 12px;"
+    />
+    <button class="btn" onclick="showPage(1)">← Back</button>
+    <button class="btn" onclick="showPage(0)">⟳ Exit</button>
+  </div>
+
+  <footer>
+    © 2025 michelle taryana | for JB
+  </footer>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById('passwordInput').value;
+      if (input === 'COD') {
+        showPage(1);
+      } else {
+        alert('SALAHHHH, coba lagi yh hehe!');
+      }
+    }
+
+    function showPage(pageNumber) {
+      const pages = document.querySelectorAll('.card');
+      pages.forEach((page, index) => {
+        if (index === pageNumber) {
+          page.classList.add('active');
+        } else {
+          page.classList.remove('active');
+        }
+      });
+    }
+
+    function noButton() {
+      alert('Yah yaudah deh *insert sticker sedih*');
+      // tetap di page 1, tidak pindah
+    }
+  </script>
+</body>
+</html>
